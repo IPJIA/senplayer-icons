@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SenPlayer 本地图标库</title>
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect width="24" height="24" rx="5" fill="%230e141b"/><path d="M9.2 7.2v9.6L17 12z" fill="%2323c3e6"/></svg>'>
+<style>
+:root{
+  --bg:#0e141b;
+  --panel:#151d26;
+  --card:#1a2430;
+  --card-hover:#1f2b39;
+  --line:#273544;
+  --text:#e7eef5;
+  --muted:#8ba0b4;
+  --faint:#5c7287;
+  --accent:#23c3e6;
+  --accent-dim:#1a9fbe;
+  --radius:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:"Segoe UI","PingFang SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  background:
+    radial-gradient(1000px 420px at 15% -10%, rgba(35,195,230,.13), transparent 60%),
+    radial-gradient(900px 400px at 90% -10%, rgba(62,207,142,.09), transparent 55%),
+    var(--bg);
+  color:var(--text);
+  min-height:100vh;
+}
+.wrap{max-width:1180px;margin:0 auto;padding:32px 24px 70px}
+
+/* header */
+header{display:flex;align-items:center;gap:14px;padding:6px 0 22px}
+.logo{width:46px;height:46px;border-radius:12px;background:linear-gradient(145deg,#1a2b38,#121b24);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,.35);flex-shrink:0}
+.brand h1{font-size:22px;font-weight:700;letter-spacing:.2px}
+.brand p{font-size:13px;color:var(--muted);margin-top:3px}
+.stats{margin-left:auto;text-align:right}
+.stats b{font-size:26px;color:var(--accent);font-weight:700}
+.stats span{display:block;font-size:12px;color:var(--faint)}
+
+/* toolbar */
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:4px 0 6px}
+.search{flex:1;min-width:220px;position:relative}
+.search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:16px;height:16px;stroke:var(--faint)}
+.search input{width:100%;padding:10px 14px 10px 38px;background:var(--panel);border:1px solid var(--line);border-radius:10px;color:var(--text);font-size:14px;outline:none;transition:border-color .15s}
+.search input:focus{border-color:var(--accent-dim)}
+.search input::placeholder{color:var(--faint)}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--muted);font-size:13px;cursor:pointer;transition:all .15s}
+.chip:hover{border-color:var(--accent-dim);color:var(--text)}
+.chip.on{background:var(--accent-dim);border-color:var(--accent-dim);color:#06141c;font-weight:600}
+.btn{padding:9px 14px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--text);font-size:13px;cursor:pointer;transition:all .15s;display:inline-flex;align-items:center;gap:6px}
+.btn:hover{border-color:var(--accent-dim);color:var(--accent)}
+.btn svg{width:14px;height:14px;stroke:currentColor}
+
+/* section */
+.sec-title{display:flex;align-items:baseline;gap:10px;margin:30px 0 14px;flex-wrap:wrap}
+.sec-title h2{font-size:15px;font-weight:600}
+.sec-title small{color:var(--faint);font-size:12px}
+
+/* grid & card */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;display:flex;flex-direction:column;gap:12px;transition:border-color .15s,transform .15s}
+.card:hover{border-color:var(--accent-dim);transform:translateY(-2px)}
+.card .prev{height:64px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.03);border-radius:10px;border:1px dashed var(--line)}
+.card .prev img{max-width:52px;max-height:52px;object-fit:contain}
+.card .meta{min-width:0}
+.card .meta .name{font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card .meta .sub{font-size:12px;color:var(--faint);margin-top:4px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.tag{font-size:11px;padding:2px 8px;border-radius:999px;background:rgba(35,195,230,.12);color:var(--accent);border:1px solid rgba(35,195,230,.25)}
+.card .links{display:flex;flex-direction:column;gap:6px}
+.copy{display:flex;align-items:center;gap:8px;padding:7px 10px;background:var(--panel);border:1px solid var(--line);border-radius:8px;cursor:pointer;transition:all .15s;font-size:12px;color:var(--muted);width:100%;text-align:left}
+.copy:hover{border-color:var(--accent-dim);color:var(--text)}
+.copy .lab{color:var(--faint);flex-shrink:0;font-size:11px;min-width:50px}
+.copy .val{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:Consolas,Menlo,monospace}
+.copy svg{width:13px;height:13px;stroke:currentColor;flex-shrink:0}
+
+/* empty */
+.empty{display:none;text-align:center;padding:54px 20px;border:1px dashed var(--line);border-radius:var(--radius);background:var(--panel)}
+.empty.show{display:block}
+.empty .big{width:56px;height:56px;margin:0 auto 14px;border-radius:14px;background:rgba(35,195,230,.1);display:flex;align-items:center;justify-content:center}
+.empty h3{font-size:16px;margin-bottom:8px}
+.empty p{color:var(--muted);font-size:13px;line-height:1.9}
+code{background:var(--card);border:1px solid var(--line);padding:2px 6px;border-radius:6px;font-family:Consolas,Menlo,monospace;font-size:12px;color:var(--accent)}
+
+/* dropzone */
+.drop{border:2px dashed var(--line);border-radius:var(--radius);background:var(--panel);padding:32px 20px;text-align:center;cursor:pointer;transition:all .2s}
+.drop:hover,.drop.drag{border-color:var(--accent);background:rgba(35,195,230,.05)}
+.drop .dz-ico{width:44px;height:44px;margin:0 auto 10px;border-radius:12px;background:rgba(35,195,230,.1);display:flex;align-items:center;justify-content:center}
+.drop h4{font-size:15px;margin-bottom:4px}
+.drop p{font-size:12px;color:var(--faint)}
+
+/* toast */
+#toast{position:fixed;left:50%;bottom:34px;transform:translateX(-50%) translateY(20px);background:#0b1218;border:1px solid var(--accent-dim);color:var(--text);padding:10px 18px;border-radius:10px;font-size:13px;opacity:0;pointer-events:none;transition:all .25s;z-index:99;box-shadow:0 8px 24px rgba(0,0,0,.4);max-width:82vw}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+footer{margin-top:44px;text-align:center;color:var(--faint);font-size:12px;line-height:2}
+@media (max-width:640px){
+  .wrap{padding:20px 14px 56px}
+  .stats{display:none}
+  .grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo"><svg viewBox="0 0 24 24"><path d="M9.2 7.2v9.6L17 12z" fill="#23c3e6"/></svg></div>
+    <div class="brand">
+      <h1>SenPlayer 图标库</h1>
+      <p>本地图标资源 · 全部使用你自己的图片，不依赖任何网络资源</p>
+    </div>
+    <div class="stats"><b id="statCount">0</b><span>个已注册图标</span></div>
+  </header>
+
+  <div class="toolbar">
+    <div class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></svg>
+      <input id="search" type="text" placeholder="搜索图标名称或标签…" autocomplete="off">
+    </div>
+    <div class="chips" id="chips"></div>
+    <button class="btn" id="exportBtn" title="把当前已注册图标导出为 manifest.json">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 15V4m0 0L8 8m4-4 4 4"/><path d="M5 14v4a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4"/></svg>
+      导出 manifest.json
+    </button>
+    <button class="btn" id="addBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+      选择图片
+    </button>
+    <input type="file" id="fileInput" accept="image/*" multiple hidden>
+  </div>
+
+  <div class="sec-title"><h2>已注册图标</h2><small>来自 icons/ 目录，相对路径以此为基准</small></div>
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty">
+    <div class="big"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#23c3e6" stroke-width="1.8"><path d="M12 5v14M5 12h14"/></svg></div>
+    <h3>图标库还是空的</h3>
+    <p>把你的图标图片（png / svg / webp / jpg，建议正方形）放进<br><code>icons/</code> 文件夹后告诉我一声，我会帮你登记到库里；<br>也可以直接用下方「添加本地图标」拖入图片，立即生成可用链接。</p>
+  </div>
+
+  <div class="sec-title"><h2>添加本地图标</h2><small>拖入或选择你做的图片，立即生成可用链接（仅本次预览，不上传）</small></div>
+  <div class="drop" id="drop">
+    <div class="dz-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#23c3e6" stroke-width="1.8"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg></div>
+    <h4>把图片拖到这里，或点击选择文件</h4>
+    <p>支持 png / svg / webp / jpg，可多选；图片只在本地浏览器处理</p>
+    <input type="file" id="dropInput" accept="image/*" multiple hidden>
+  </div>
+  <div class="sec-title" id="localSec" style="display:none"><h2>本次添加</h2><small>这些链接当前有效，刷新后消失；要长期保留请把文件放进 icons/ 目录</small></div>
+  <div class="grid" id="localGrid"></div>
+
+  <footer>
+    相对路径以图标库所在目录为基准，代码中引用形如 <code>&lt;img src="icons/xxx.png"&gt;</code><br>
+    把整个 <b>senplayer-icons</b> 文件夹放进你的项目目录即可随身携带使用
+  </footer>
+</div>
+<div id="toast"></div>
+
+<script>
+/* ===== 已注册图标清单（与 manifest.json 同步维护，新增图标时在此追加） =====
+   格式：{ name: '图标名', file: 'icons/文件名.png', tags: ['标签1','标签2'] }
+*/
+const ICONS = [
+  { name: 'activity-100', file: 'icons/icons8-activity-100.png', tags: ['导航'] },
+  { name: 'activity-96', file: 'icons/icons8-activity-96.png', tags: ['导航'] },
+  { name: 'anal-96', file: 'icons/icons8-anal-96.png', tags: ['体位'] },
+  { name: 'back-96 (1)', file: 'icons/icons8-back-96 (1).png', tags: ['导航'] },
+  { name: 'back-96', file: 'icons/icons8-back-96.png', tags: ['导航'] },
+  { name: 'bottom-96', file: 'icons/icons8-bottom-96.png', tags: ['导航'] },
+  { name: 'condom-100', file: 'icons/icons8-condom-100.png', tags: ['用品'] },
+  { name: 'condom-on-100', file: 'icons/icons8-condom-on-100.png', tags: ['用品'] },
+  { name: 'cowgirl-96', file: 'icons/icons8-cowgirl-96.png', tags: ['体位'] },
+  { name: 'dildo-100', file: 'icons/icons8-dildo-100.png', tags: ['用品'] },
+  { name: 'dog-96', file: 'icons/icons8-dog-96.png', tags: ['体位'] },
+  { name: 'doggy-96', file: 'icons/icons8-doggy-96.png', tags: ['体位'] },
+  { name: 'front-96', file: 'icons/icons8-front-96.png', tags: ['导航'] },
+  { name: 'licking-96', file: 'icons/icons8-licking-96.png', tags: ['体位'] },
+  { name: 'man-96', file: 'icons/icons8-man-96.png', tags: ['人物'] },
+  { name: 'oral-sex-96 (1)', file: 'icons/icons8-oral-sex-96 (1).png', tags: ['体位'] },
+  { name: 'oral-sex-96', file: 'icons/icons8-oral-sex-96.png', tags: ['体位'] },
+  { name: 'penis (1)', file: 'icons/icons8-penis (1).gif', tags: ['用品'] },
+  { name: 'penis', file: 'icons/icons8-penis.gif', tags: ['用品'] },
+  { name: 'prostitution-96', file: 'icons/icons8-prostitution-96.png', tags: ['人物'] },
+  { name: 'sex-96 (1)', file: 'icons/icons8-sex-96 (1).png', tags: ['体位'] },
+  { name: 'sex-96 (2)', file: 'icons/icons8-sex-96 (2).png', tags: ['体位'] },
+  { name: 'sex-96 (3)', file: 'icons/icons8-sex-96 (3).png', tags: ['体位'] },
+  { name: 'sex-96', file: 'icons/icons8-sex-96.png', tags: ['体位'] },
+  { name: 'sex-worker-96', file: 'icons/icons8-sex-worker-96.png', tags: ['人物'] },
+  { name: 'toy-100', file: 'icons/icons8-toy-100.png', tags: ['用品'] },
+];
+
+/* ===== 工具 ===== */
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function fmtSize(b){ if(b<1024) return b+' B'; if(b<1048576) return (b/1024).toFixed(1)+' KB'; return (b/1048576).toFixed(2)+' MB'; }
+function fullPath(src){ try{ return new URL(src, location.href).href; }catch(e){ return src; } }
+
+let toastTimer;
+function toast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.remove('show'), 1600);
+}
+function copyText(text){
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(()=>toast('已复制到剪贴板')).catch(()=>fallbackCopy(text));
+  } else { fallbackCopy(text); }
+}
+function fallbackCopy(text){
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed'; ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  let ok = false;
+  try{ ok = document.execCommand('copy'); }catch(e){}
+  document.body.removeChild(ta);
+  toast(ok ? '已复制到剪贴板' : '复制失败，请手动复制');
+}
+
+/* ===== 卡片渲染 ===== */
+function iconCard(it){
+  const src = it.dataUrl || it.file;
+  const firstLab = it.dataUrl ? '文件名' : '相对路径';
+  const firstVal = it.file || '(临时，未存盘)';
+  const htmlTag = '<img src="' + src + '">';
+  const tags = (it.tags||[]).map(t=>'<span class="tag">'+esc(t)+'</span>').join('');
+  const size = it.size ? '<span>'+fmtSize(it.size)+'</span>' : '';
+  const el = document.createElement('div');
+  el.className = 'card';
+  el.innerHTML =
+    '<div class="prev"><img src="'+esc(src)+'" alt="'+esc(it.name)+'" onerror="this.closest(\'.card\').style.display=\'none\'"></div>' +
+    '<div class="meta">' +
+      '<div class="name" title="'+esc(it.name)+'">'+esc(it.name)+'</div>' +
+      '<div class="sub">'+tags+size+'</div>' +
+    '</div>' +
+    '<div class="links">' +
+      '<button class="copy" data-copy="'+esc(firstVal)+'"><span class="lab">'+firstLab+'</span><span class="val">'+esc(firstVal)+'</span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>' +
+      '<button class="copy" data-copy="'+esc(htmlTag)+'"><span class="lab">HTML</span><span class="val">&lt;img src="…"&gt;</span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>' +
+      '<button class="copy" data-copy="'+esc(fullPath(src))+'"><span class="lab">完整路径</span><span class="val">'+(it.dataUrl?'data:…':'file:///…')+'</span><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>' +
+    '</div>';
+  return el;
+}
+
+/* ===== 已注册图标渲染 ===== */
+const grid = document.getElementById('grid');
+const empty = document.getElementById('empty');
+const chips = document.getElementById('chips');
+const search = document.getElementById('search');
+const statCount = document.getElementById('statCount');
+let activeTag = '全部';
+
+function renderChips(){
+  const tags = ['全部', ...new Set(ICONS.flatMap(it=>it.tags||[]))];
+  chips.innerHTML = tags.map(t=>'<button class="chip'+(t===activeTag?' on':'')+'" data-tag="'+esc(t)+'">'+esc(t)+'</button>').join('');
+}
+function render(){
+  const q = search.value.trim().toLowerCase();
+  const list = ICONS.filter(it=>{
+    const okTag = activeTag==='全部' || (it.tags||[]).includes(activeTag);
+    const okQ = !q || it.name.toLowerCase().includes(q) || (it.tags||[]).some(t=>t.toLowerCase().includes(q));
+    return okTag && okQ;
+  });
+  grid.innerHTML = '';
+  list.forEach(it=>grid.appendChild(iconCard(it)));
+  statCount.textContent = ICONS.length;
+  empty.classList.toggle('show', ICONS.length===0);
+  renderChips();
+}
+search.addEventListener('input', render);
+
+/* ===== 全局点击：复制按钮 / 标签筛选 ===== */
+document.addEventListener('click', e=>{
+  const btn = e.target.closest('.copy');
+  if(btn){ copyText(btn.dataset.copy); return; }
+  const chip = e.target.closest('.chip');
+  if(chip){ activeTag = chip.dataset.tag; render(); }
+});
+
+/* ===== 本地图片：拖拽 / 选择 ===== */
+const drop = document.getElementById('drop');
+const dropInput = document.getElementById('dropInput');
+const fileInput = document.getElementById('fileInput');
+const localGrid = document.getElementById('localGrid');
+const localSec = document.getElementById('localSec');
+let localList = [];
+
+function handleFiles(files){
+  [...files].filter(f=>f.type.startsWith('image/')).forEach(f=>{
+    const reader = new FileReader();
+    reader.onload = ev => {
+      localList.push({
+        name: f.name.replace(/\.[^.]+$/,''),
+        file: f.name,
+        size: f.size,
+        tags: ['临时'],
+        dataUrl: ev.target.result
+      });
+      renderLocal();
+    };
+    reader.readAsDataURL(f);
+  });
+  if([...files].filter(f=>f.type.startsWith('image/')).length === 0){
+    toast('没有识别到图片文件（png / svg / webp / jpg）');
+  }
+}
+function renderLocal(){
+  localSec.style.display = localList.length ? 'block' : 'none';
+  localGrid.innerHTML = '';
+  localList.forEach(it=>localGrid.appendChild(iconCard(it)));
+}
+drop.addEventListener('click', ()=>dropInput.click());
+dropInput.addEventListener('change', e=>{ handleFiles(e.target.files); e.target.value=''; });
+['dragenter','dragover'].forEach(ev=>drop.addEventListener(ev, e=>{ e.preventDefault(); drop.classList.add('drag'); }));
+['dragleave','drop'].forEach(ev=>drop.addEventListener(ev, e=>{ e.preventDefault(); drop.classList.remove('drag'); }));
+drop.addEventListener('drop', e=>handleFiles(e.dataTransfer.files));
+document.getElementById('addBtn').addEventListener('click', ()=>fileInput.click());
+fileInput.addEventListener('change', e=>{ handleFiles(e.target.files); e.target.value=''; });
+
+/* ===== 导出 manifest.json ===== */
+document.getElementById('exportBtn').addEventListener('click', ()=>{
+  const origin = location.origin || '';
+  const data = {
+    name: 'SenPlayer 图标库',
+    description: '本地图标清单，与 index.html 中的 ICONS 数组保持同步',
+    base: 'icons/',
+    icons: ICONS.map(({name,file,tags})=>{
+      const url = origin ? origin + '/' + file : file;
+      return { name, file, url, src: url, icon: url, path: url, tags };
+    })
+  };
+  const blob = new Blob([JSON.stringify(data, null, 2)], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'manifest.json';
+  a.click();
+  URL.revokeObjectURL(a.href);
+  toast('已导出 manifest.json（含 ' + ICONS.length + ' 个已注册图标）');
+});
+
+render();
+</script>
+</body>
+</html>
